@@ -28,8 +28,10 @@ public class ControlStructureExercises {
 
     public static void main(String[] args) {
         // maiorEntreTres();
-       // verificaçãoNumeroPrimo();
-        fatorial();
+        // verificaçãoNumeroPrimo();
+        // fatorial();
+        // fibonacci();
+        //conversorDeTemperatura();
         scanner.close();
     }
 
@@ -55,12 +57,12 @@ public class ControlStructureExercises {
             System.out.println("notCousin");
             return;
         }
-        for (int i = 2; i <= Math.sqrt(thisnumber) ; i++) {
+        for (int i = 2; i <= Math.sqrt(thisnumber); i++) {
             if (thisnumber % i == 0) {
                 System.out.println("notCousin");
             }
         }
-            System.out.println("cousin");
+        System.out.println("cousin");
 
     }
 
@@ -68,8 +70,8 @@ public class ControlStructureExercises {
         Integer numeroFatorial = scanner.nextInt();
         Integer resultadoAtual = numeroFatorial;
 
-        for (int i = numeroFatorial; i > 0 ; i--) {
-            Integer valorMenor = i-1;
+        for (int i = numeroFatorial; i > 0; i--) {
+            Integer valorMenor = i - 1;
             if (valorMenor == 0) {
                 System.out.println(resultadoAtual);
                 return;
@@ -82,7 +84,37 @@ public class ControlStructureExercises {
     }
 
     public static void fibonacci() {
+        Integer numero = scanner.nextInt();
 
+        Integer a = 0;
+        Integer b = 1;
+
+        while (a <= numero) {
+            System.out.println(a + " ");
+            Integer temporario = a;
+            a = b;
+            b = temporario + b;
+        }
+    }
+
+    public static void conversorDeTemperatura() {
+        System.out.println("Digite o número correspondente a conversão que deseja realizar:  1-Celsius para Fahrenheit,  2-Fahrenheit para Celsius");
+        Integer escolherOperacao = scanner.nextInt();
+
+        System.out.println("Digite a temperatura: ");
+        Integer temperatura = scanner.nextInt();
+
+
+        switch (escolherOperacao) {
+            case 1:
+                int conversaoFahrenheit = (temperatura * 9 / 5) + 32;
+                System.out.println(temperatura + "ºC equivale à " + conversaoFahrenheit + "ºF");
+                break;
+            case 2:
+                int conversaoCelsius = (temperatura - 32) * 5 / 9;
+                System.out.println(temperatura + "ºF equivale à " + conversaoCelsius + "ºC");
+                break;
+        }
     }
 
 }
